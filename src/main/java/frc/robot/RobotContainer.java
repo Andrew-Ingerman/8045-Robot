@@ -94,12 +94,12 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    joystickButton8.toggleWhenPressed(colorSwitch);
+    joystickButton8.toggleWhenActive(colorSwitch);
     joystickButton3.toggleWhenActive(pickup);
     joystickButton1.toggleWhenPressed(shootball);
     // joystickButton4.whileActiveContinuous(new DrivePreset());
-    joystickButton11.whileHeld(armMover);
-    xBoxButton5.toggleWhenActive(intakeLifter);
+    joystickButton1.toggleWhenActive(armMover);
+    // joystickButton11.toggleWhenActive(intakeLifter);
   }
 
   /**

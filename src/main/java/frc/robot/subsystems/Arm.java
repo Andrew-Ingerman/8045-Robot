@@ -5,12 +5,13 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Arm extends SubsystemBase {
   
-  public static Servo Actuator;
-
+  // public static Servo Actuator;
+  public static Servo actuator;
   public Arm() {
-    
+  
     
   }
+
 
   @Override
   public void periodic() {

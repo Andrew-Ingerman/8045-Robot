@@ -62,7 +62,7 @@ public class Robot extends TimedRobot {
     RobotContainer.colorspinner = new Colorwheel();
     RobotContainer.colorSwitch = new Colorswitch();
     RobotContainer.joystick = new Joystick(Constants.joystick);
-    RobotContainer.joystickButton8 = new JoystickButton(RobotContainer.joystick, Constants.color);
+    RobotContainer.joystickButton8 = new JoystickButton(RobotContainer.joystick, /*Constants.color*/ 5);
     RobotContainer.joystickButton1 = new JoystickButton(RobotContainer.joystick, Constants.launch);
     RobotContainer.joystickButton3 = new JoystickButton(RobotContainer.joystick, Constants.catcher);
     RobotContainer.joystickButton4 = new JoystickButton(RobotContainer.joystick, 4);
@@ -93,7 +93,7 @@ public class Robot extends TimedRobot {
     RobotContainer.ultrasound = new AnalogInput(0);
     Balllauncher.gate = new Servo(0);
     Intake.intakeServo = new Servo(1);
-    Arm.Actuator = new Servo(2);
+    Arm.actuator = new Servo(2);
     RobotContainer.intakeLifter = new IntakeLifter();
     RobotContainer.armMover = new MoveArm(); 
     Intake.catcher1 = new WPI_VictorSPX(Constants.catcher1);

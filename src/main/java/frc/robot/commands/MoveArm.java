@@ -17,8 +17,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
  * An example command that uses an example subsystem.
  */
 public class MoveArm extends CommandBase {
-  
+  public static double i = 0;
 
+  private static Boolean IS_RUNNING = false;
   public MoveArm() {
     // Use addRequirements() here to declare subsystem dependencies.
     
@@ -28,20 +29,28 @@ public class MoveArm extends CommandBase {
   @Override
   public void initialize() {
     
-      Arm.Actuator.set(0);
+      Arm.actuator.setBounds(2, 2, 1.5, 1, 1);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-  Arm.Actuator.setSpeed(1.0);      
+    System.out.println(i);
+    if (RobotContainer.joystick.getRawButton(11) ){
+      i++;
+    }
+    else if (RobotContainer.joystick.getRawButton(8)){
+      i--;
+    }
+    // double angle = IS_RUNNING ? 0.0: i;
+    Arm.actuator.set(i);      
     }
   
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-      Arm.Actuator.set(0);
+      Arm.actuator.set(0);
   }
 
   // Returns true when the command should end.
