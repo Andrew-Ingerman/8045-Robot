@@ -42,20 +42,20 @@ public class Colorswitch extends CommandBase implements IColorswitch {
   
   
     if (RobotContainer.xController.getAButtonPressed()){
-      defaultcolor = WheelColors.Green;
-      return WheelColors.Green;
-    }
-    else if (RobotContainer.xController.getBButtonPressed()){
-      defaultcolor = WheelColors.Red;
-      return WheelColors.Red;
-    }
-    else if (RobotContainer.xController.getXButtonPressed()){
-      defaultcolor = WheelColors.Blue;
-      return WheelColors.Blue;
-    } 
-    else if (RobotContainer.xController.getYButtonPressed()){
       defaultcolor = WheelColors.Yellow;
       return WheelColors.Yellow;
+    }
+    else if (RobotContainer.xController.getBButtonPressed()){
+      defaultcolor = WheelColors.Blue;
+      return WheelColors.Blue;
+    }
+    else if (RobotContainer.xController.getXButtonPressed()){
+      defaultcolor = WheelColors.Red;
+      return WheelColors.Red;
+    } 
+    else if (RobotContainer.xController.getYButtonPressed()){
+      defaultcolor = WheelColors.Green;
+      return WheelColors.Green;
     }
     return defaultcolor;
   }
@@ -64,10 +64,13 @@ public class Colorswitch extends CommandBase implements IColorswitch {
     System.out.println("The detected color is " + Colorreading());
     System.out.println("The target color is " + ColorChooser());
     WheelColors[] colors = WheelColors.values();
-    // if(Colorreading() == colors[ColorTargeting()]){
-    //   RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 50); 
-    // }
-   if (Colorreading() == ColorChooser()){
+    if(Colorreading() == colors[ColorTargeting()]){
+        RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 5);
+    }
+
+    
+
+    else if (Colorreading() == ColorChooser()){
       RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 0); 
     } 
     else {
