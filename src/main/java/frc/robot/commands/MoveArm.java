@@ -5,6 +5,8 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
+//.5 is the top
 package frc.robot.commands;
 
 import frc.robot.Constants;
@@ -37,10 +39,10 @@ public class MoveArm extends CommandBase {
   public void execute() {
     System.out.println(i);
     if (RobotContainer.joystick.getRawButton(11) ){
-      i++;
+      i+=0.003;
     }
     else if (RobotContainer.joystick.getRawButton(8)){
-      i--;
+      i-=0.003;
     }
     // double angle = IS_RUNNING ? 0.0: i;
     Arm.actuator.set(i);      
