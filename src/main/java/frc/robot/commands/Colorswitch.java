@@ -15,14 +15,14 @@ public class Colorswitch extends CommandBase implements IColorswitch {
   private final Color kGreenTarget = ColorMatch.makeColor(0.197, 0.561, 0.240);
   private final Color kRedTarget = ColorMatch.makeColor(0.561, 0.232, 0.114);
   private final Color kYellowTarget = ColorMatch.makeColor(0.361, 0.524, 0.113);
-  public Colorswitch( ) {
+
+  public Colorswitch() {
   }
 
   private WheelColors defaultcolor = WheelColors.Yellow;
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    
     defaultcolor = WheelColors.Yellow;
     m_colorMatcher.addColorMatch(kBlueTarget);
     m_colorMatcher.addColorMatch(kGreenTarget);
@@ -37,9 +37,6 @@ public class Colorswitch extends CommandBase implements IColorswitch {
   }
 
   public WheelColors ColorChooser(){
-  
-  
-  
     if (RobotContainer.xController.getAButtonPressed()){
       defaultcolor = WheelColors.Yellow;
       return WheelColors.Yellow;
@@ -61,13 +58,10 @@ public class Colorswitch extends CommandBase implements IColorswitch {
 
   public void Motorcontrol(){
     WheelColors[] colors = WheelColors.values();
-    if(Colorreading() == colors[ColorTargeting()]){
-        RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 5);
+    if (Colorreading() == colors[ColorTargeting()]) {
+      RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 5);
     }
-
-    
-
-    else if (Colorreading() == ColorChooser()){
+    else if (Colorreading() == ColorChooser()) {
       RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 0); 
     } 
     else {
@@ -95,30 +89,28 @@ public class Colorswitch extends CommandBase implements IColorswitch {
       colorString = WheelColors.Green;
     } else if (match.color == kYellowTarget) {
       colorString = WheelColors.Yellow;
-
     } else {
       colorString = WheelColors.Black;
     }
     return(colorString);
   }
+
   public int ColorTargeting(){
     int target;
     if (ColorChooser() == WheelColors.Blue){
       target = 4;
     }
-    else if(ColorChooser() == WheelColors.Red){
+    else if (ColorChooser() == WheelColors.Red){
       target = 2;
     }
-    else if(ColorChooser() == WheelColors.Green){
+    else if (ColorChooser() == WheelColors.Green){
       target = 3;
     }
-  else{
-    target = 1;
+    else {
+      target = 1;
+    }
+    return target;  
   }
-  return target;  
-}
-
-
 
   public double countSpin()
   {
@@ -126,39 +118,29 @@ public class Colorswitch extends CommandBase implements IColorswitch {
     ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
     double count = 0;
     if (match.color == kBlueTarget) {
-      if(storedColor != match.color)
-      {
+      if (storedColor != match.color) {
         storedColor = match.color;
         count += 1/8;
       }
-     
     } else if (match.color == kRedTarget) {
-      if(storedColor != match.color)
-      {
+      if (storedColor != match.color) {
         storedColor = match.color;
         count += 1/8;
       }
     } else if (match.color == kGreenTarget) {
-      if(storedColor != match.color)
-      {
+      if(storedColor != match.color) {
         storedColor = match.color;
         count += 1/8;
       }
     } else if (match.color == kYellowTarget) {
-      if(storedColor != match.color)
-      {
+      if (storedColor != match.color) {
         storedColor = match.color;
         count += 1/8;
       }
 
-    } 
-    
-    return count;
-      
     }
-    
-  
-  
+    return count;
+}
 
   // Called once the command ends or is interrupted.
   // Returns true when the command should end.

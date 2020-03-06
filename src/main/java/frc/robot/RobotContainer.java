@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.kinematics.DifferentialDriveKinematics;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.Autonomous;
 import frc.robot.commands.Cancel;
 import frc.robot.commands.Colorswitch;
 import frc.robot.commands.DrivePreset;
@@ -51,7 +52,7 @@ public class RobotContainer {
   public static Joystick joystick;
   // The robot's subsystems and commands are defined here...
   public static ExampleSubsystem m_exampleSubsystem;
-  public static ExampleCommand m_autoCommand;
+  public static Autonomous m_autoCommand;
   public static Move move;
   public static Drivetrain drivetrain;
   public static Colorwheel colorspinner;

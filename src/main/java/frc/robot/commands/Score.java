@@ -9,23 +9,14 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
-import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.MedianFilter;
 
-public class Scanner extends CommandBase {
+// Scores during autonomous if it senses the goal 
+public class Score extends CommandBase {
   /**
-   * Creates a new Scanner.
+   * Creates a new Score.
    */
-  private AnalogInput m_ultrasonic;
-  private int kUltrasonicPort;
-  private MedianFilter m_filter;
-  private static double kHoldDistance;
-  public Scanner() {
+  public Score() {
     // Use addRequirements() here to declare subsystem dependencies.
-    kUltrasonicPort = 0;
-    m_ultrasonic= new AnalogInput(kUltrasonicPort);
-    m_filter = new MedianFilter(10);
-    kHoldDistance = 12.0;
   }
 
   // Called when the command is initially scheduled.
@@ -35,15 +26,7 @@ public class Scanner extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() 
-  {
-    double currentDistance =  m_filter.calculate(m_ultrasonic.getValue()) * 0.125;
-    System.out.println(currentDistance);
-    double currentSpeed = (kHoldDistance - currentDistance) * 0.125;
-    if (currentDistance <= 30)
-    {
-      RobotContainer.myRobot.arcadeDrive(0, 0);
-    }
+  public void execute() {
   }
 
   // Called once the command ends or is interrupted.
