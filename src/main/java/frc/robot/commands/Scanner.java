@@ -37,9 +37,9 @@ public class Scanner extends CommandBase {
   public void execute() 
   {
     double currentDistance =  m_filter.calculate(Ultrasound.ultrasonicFront.getValue()) * 0.125;
-    System.out.println(currentDistance);
+    
     double currentSpeed = (kHoldDistance - currentDistance) * 0.125;
-    RobotContainer.myRobot.arcadeDrive(currentSpeed, currentSpeed);
+    RobotContainer.myRobot.arcadeDrive(currentSpeed, 0);
     if (currentDistance <= 30)
     {
       RobotContainer.myRobot.arcadeDrive(0, 0);
