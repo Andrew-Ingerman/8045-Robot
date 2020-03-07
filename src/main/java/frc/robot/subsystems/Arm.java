@@ -8,12 +8,9 @@ public class Arm extends SubsystemBase {
   public static Servo Actuator;
 
   public Arm() {
-    
-    
   }
 
   @Override
-  public void periodic() {
-    
+  public void periodic() {    
   }
 }

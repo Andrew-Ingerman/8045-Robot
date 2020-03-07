@@ -58,21 +58,21 @@ public class RobotContainer {
   public static Colorwheel colorspinner;
   public static Gyrosys gyrothing;
   public static Cancel cancel;
-  public static JoystickButton joystickButton8;
+  public static JoystickButton joystickButton5;
   public static JoystickButton joystickButton10;
   public static JoystickButton joystickButton12;
   public static JoystickButton joystickButton4;
   public static JoystickButton joystickButton1;
+  public static JoystickButton joystickButton2;
   public static JoystickButton joystickButton3;
   public static JoystickButton joystickButton11;
-  public static JoystickButton xBoxButton5;
   // public static Colorswitch colorswitch;
   public static DifferentialDrive myRobot;
   public static WPI_VictorSPX v1;
   public static WPI_VictorSPX v2;
   public static WPI_VictorSPX v3;
   public static WPI_VictorSPX v4;
-  public static PigeonIMU sensorthing;
+  public static PigeonIMU gyroSensor;
   public static SpeedControllerGroup leftMotors;
   public static SpeedControllerGroup rightMotors;
   public static WPI_VictorSPX wheelspinner;
@@ -83,8 +83,7 @@ public class RobotContainer {
   public static Balllauncher balllauncher;
   public static IntakeLifter intakeLifter;
   public static MoveArm armMover;
-
-  public static AnalogInput ultrasound;
+  public static AnalogInput backUltrasound;
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -100,12 +99,12 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    joystickButton8.toggleWhenPressed(colorSwitch);
+    joystickButton5.toggleWhenPressed(colorSwitch);
     joystickButton3.toggleWhenActive(pickup);
     joystickButton1.toggleWhenPressed(shootball);
     // joystickButton4.whileActiveContinuous(new DrivePreset());
-    joystickButton11.whileHeld(armMover);
-    xBoxButton5.toggleWhenActive(intakeLifter);
+    joystickButton11.toggleWhenActive(armMover);
+    joystickButton2.whileHeld(cancel);
   }
 
   /**
@@ -114,7 +113,7 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
+    // run autonomous
     return m_autoCommand;
   }
 }

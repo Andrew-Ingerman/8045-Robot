@@ -27,21 +27,20 @@ public class MoveArm extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    
-      Arm.Actuator.set(0);
+    Arm.Actuator.set(0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-  Arm.Actuator.setSpeed(1.0);      
-    }
+    Arm.Actuator.setSpeed(1.0);      
+  }
   
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-      Arm.Actuator.set(0);
+    Arm.Actuator.set(0);
   }
 
   // Returns true when the command should end.

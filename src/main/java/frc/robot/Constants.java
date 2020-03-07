@@ -21,18 +21,26 @@ public final class Constants {
   public static final int RightFollower = 3;
   public static final int LeftLeader = 1;
   public static final int LeftFollower = 4;
-  public static final int conveyerBelt = 5;
-  public static final int catcher1 = 5;
-  public static final int catcher2 = 6;
-  public static final int shooter = 7;
+  public static final int shooter = 6;
+  public static final int wheelspinner = 5;
   // Joystick port
   public static final int joystick = 0;
+  public static final int xcontroller = 1;
   // Buttons
   public static final int catcher = 3;
   public static final int launch = 1;
-  public static final int color = 8;
-  public static final int slow15 = 10;
-  public static final int fast = 12;
-  public static final int cancel = 11;
+  public static final int color = 5;
+  public static final int armMover = 11;
+  public static final int cancel = 2;
   public static final int toggleArm = 9;
+  // Servo
+  public static final int gate = 0;
+  public static final int intake = 1;
+  public static final int actuator = 2;
+  // Ultrasound
+  public static final int leftUltrasound = 0;
+  public static final int frontUltrasound = 1;
+  public static final int backUltrasound = 2;
+  // Gyro
+  public static final int gyroSensor = 0;
 }

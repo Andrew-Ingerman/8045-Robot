@@ -59,19 +59,17 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer. This will perform all our button bindings,
     // and put our
     // autonomous chooser on the dashboard.
-    RobotContainer.xController = new XboxController(1);
+    RobotContainer.xController = new XboxController(Constants.xcontroller);
     RobotContainer.drivetrain = new Drivetrain();
     RobotContainer.colorspinner = new Colorwheel();
     RobotContainer.colorSwitch = new Colorswitch();
     RobotContainer.joystick = new Joystick(Constants.joystick);
-    RobotContainer.joystickButton8 = new JoystickButton(RobotContainer.joystick, 5);
+    RobotContainer.joystickButton5 = new JoystickButton(RobotContainer.joystick, Constants.color);
     RobotContainer.joystickButton1 = new JoystickButton(RobotContainer.joystick, Constants.launch);
     RobotContainer.joystickButton3 = new JoystickButton(RobotContainer.joystick, Constants.catcher);
     RobotContainer.joystickButton4 = new JoystickButton(RobotContainer.joystick, 4);
-    RobotContainer.joystickButton10 = new JoystickButton(RobotContainer.joystick, Constants.slow15);
-    RobotContainer.joystickButton12 = new JoystickButton(RobotContainer.joystick, Constants.fast);
-    RobotContainer.joystickButton11 = new JoystickButton(RobotContainer.joystick, Constants.cancel);
-    RobotContainer.xBoxButton5 = new JoystickButton(RobotContainer.xController, 5);
+    RobotContainer.joystickButton11 = new JoystickButton(RobotContainer.joystick, Constants.armMover);
+    RobotContainer.joystickButton2 = new JoystickButton(RobotContainer.joystick, Constants.cancel);
     RobotContainer.drivetrain = new Drivetrain();
     RobotContainer.colorspinner = new Colorwheel();
     RobotContainer.v1 = new WPI_VictorSPX(Constants.RightLeader);
@@ -83,7 +81,7 @@ public class Robot extends TimedRobot {
     RobotContainer.myRobot = new DifferentialDrive(RobotContainer.rightMotors, RobotContainer.leftMotors);
     RobotContainer.i2cPort = I2C.Port.kOnboard;
     RobotContainer.colorsensor = new ColorSensorV3(RobotContainer.i2cPort);
-    RobotContainer.wheelspinner = new WPI_VictorSPX(5);
+    RobotContainer.wheelspinner = new WPI_VictorSPX(Constants.wheelspinner);
     RobotContainer.drivetrain.intialize();
     RobotContainer.move = new Move();
     RobotContainer.intake = new Intake();
@@ -91,18 +89,15 @@ public class Robot extends TimedRobot {
     RobotContainer.pickup = new Pickup();
     RobotContainer.shootball = new Shootball();
     RobotContainer.cancel = new Cancel();
-    RobotContainer.sensorthing = new PigeonIMU(0);
+    RobotContainer.gyroSensor = new PigeonIMU(Constants.gyroSensor);
     Balllauncher.shooter = new WPI_VictorSPX(Constants.shooter);
-    RobotContainer.ultrasound = new AnalogInput(0);
-    Balllauncher.gate = new Servo(0);
-    Intake.intakeServo = new Servo(1);
-    Arm.Actuator = new Servo(2);
+    RobotContainer.backUltrasound = new AnalogInput(Constants.backUltrasound);
+    Balllauncher.gate = new Servo(Constants.gate);
+    Intake.intakeServo = new Servo(Constants.intake);
+    Arm.Actuator = new Servo(Constants.actuator);
     RobotContainer.intakeLifter = new IntakeLifter();
     RobotContainer.armMover = new MoveArm(); 
-    Intake.catcher1 = new WPI_VictorSPX(Constants.catcher1);
-    Intake.catcher2 = new WPI_VictorSPX(Constants.catcher2);
     Intake.catcher = new SpeedControllerGroup(Intake.catcher1, Intake.catcher2);
-    Intake.conveyerBelt = new WPI_VictorSPX(Constants.conveyerBelt);
     robotContainer = new RobotContainer();
   }
 
@@ -156,9 +151,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-    
-
-
   }
 
   @Override
@@ -178,7 +170,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-
     Balllauncher.gate.setAngle(175);
   }
 

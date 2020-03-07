@@ -18,19 +18,16 @@ public class Move extends CommandBase {
   @Override
   public void execute() {
     System.out.println(RobotContainer.joystick.getY());
-    if(RobotContainer.joystick.getRawButtonPressed(8))
-    {
+    if (RobotContainer.joystick.getRawButtonPressed(8)) {
       spdMult = 0.5;
     }
-    else if(RobotContainer.joystick.getRawButtonPressed(10))
-    {
+    else if (RobotContainer.joystick.getRawButtonPressed(10)) {
       spdMult = 0.7;
     }
-    else if(RobotContainer.joystick.getRawButtonPressed(12))
-    {
+    else if (RobotContainer.joystick.getRawButtonPressed(12)) {
       spdMult = 1.0;
     }
-    RobotContainer.myRobot.tankDrive(-spdMult*RobotContainer.xController.getY(Hand.kLeft),spdMult*RobotContainer.xController.getY(Hand.kRight));
+    RobotContainer.myRobot.tankDrive(-spdMult*RobotContainer.xController.getY(Hand.kLeft), spdMult*RobotContainer.xController.getY(Hand.kRight));
   }
 
   // Called once the command ends or is interrupted.

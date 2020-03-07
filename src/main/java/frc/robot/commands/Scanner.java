@@ -35,13 +35,11 @@ public class Scanner extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() 
-  {
+  public void execute() {
     double currentDistance =  m_filter.calculate(m_ultrasonic.getValue()) * 0.125;
     System.out.println(currentDistance);
     double currentSpeed = (kHoldDistance - currentDistance) * 0.125;
-    if (currentDistance <= 30)
-    {
+    if (currentDistance <= 30) {
       RobotContainer.myRobot.arcadeDrive(0, 0);
     }
   }

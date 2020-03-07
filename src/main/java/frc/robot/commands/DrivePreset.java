@@ -26,7 +26,6 @@ public class DrivePreset extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    
     RobotContainer.balllauncher.gate.setAngle(0);
     RobotContainer.intake.intakeServo.setAngle(0);
     RobotContainer.balllauncher.shooter.set(0);

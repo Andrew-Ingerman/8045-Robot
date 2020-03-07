@@ -39,7 +39,7 @@ public class Gyronum extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      RobotContainer.sensorthing.getRawMagnetometer(magArray);
+      RobotContainer.gyroSensor.getRawMagnetometer(magArray);
   }
 
   // Called once the command ends or is interrupted.

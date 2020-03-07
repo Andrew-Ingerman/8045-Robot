@@ -39,5 +39,3 @@ public class Shootball extends CommandBase {
     return true;
   }
 }
-
-
