@@ -23,6 +23,7 @@ public class Ultrasound extends SubsystemBase {
 
   public static AnalogInput ultrasonicFront;
   public static AnalogInput ultrasonicLeft;
+  public static AnalogInput ultrasonicBack;
   private static double kValueToInches;
   private static double kP;
   private static int kUltrasonicPort;

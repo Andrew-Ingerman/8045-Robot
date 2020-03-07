@@ -17,7 +17,6 @@ public class Scanner extends CommandBase {
   /**
    * Creates a new Scanner.
    */
-
   private MedianFilter m_filter;
   private static double kHoldDistance;
   public Scanner() {
@@ -34,14 +33,12 @@ public class Scanner extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() 
-  {
+  public void execute() {
     double currentDistance =  m_filter.calculate(Ultrasound.ultrasonicFront.getValue()) * 0.125;
-    System.out.println(currentDistance);
+    // System.out.println(currentDistance);
     double currentSpeed = (kHoldDistance - currentDistance) * 0.125;
     RobotContainer.myRobot.arcadeDrive(currentSpeed, currentSpeed);
-    if (currentDistance <= 30)
-    {
+    if (currentDistance <= 30) {
       RobotContainer.myRobot.arcadeDrive(0, 0);
     }
   }
