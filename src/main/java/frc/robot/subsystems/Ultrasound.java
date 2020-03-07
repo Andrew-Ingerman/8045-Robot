@@ -19,15 +19,17 @@ public class Ultrasound extends SubsystemBase {
    * Creates a new Ultrasound.
    */
 
-  private static double kHoldDistance;
+  public static double kHoldDistance;
 
   public static AnalogInput ultrasonicFront;
   public static AnalogInput ultrasonicLeft;
   public static AnalogInput ultrasonicBack;
   private static double kValueToInches;
-  private static double kP;
+  public static double kP;
   private static int kUltrasonicPort;
   public static MedianFilter m_filter;
+
+public static double currentDistance;
 
   private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
   public Ultrasound() {

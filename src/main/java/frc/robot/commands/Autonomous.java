@@ -26,10 +26,8 @@ public class Autonomous extends SequentialCommandGroup {
       new MoveBack(),
       // turns the robot 90 deg so it can shoot
       new Turn(),
-      // Moves toward the goal and scans to shoot
-      new ParallelRaceGroup(new Scanner(), new Score()),
-      // turns the robot 90 deg so it can shoot
-      new Turn()
+      // Moves toward the goal and scans to shootw
+      new ParallelRaceGroup(new Scanner(), new Score())
     );
   }
 

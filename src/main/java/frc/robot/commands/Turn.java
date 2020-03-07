@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import frc.robot.Constants;
+import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import com.ctre.phoenix.sensors.PigeonIMU;
@@ -25,6 +26,11 @@ public class Turn extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    PigeonIMU.FusionStatus fusionStatus = new PigeonIMU.FusionStatus();
+    double currentAngle = fusionStatus.heading;
+    if(currentAngle <= 90){
+      RobotContainer.myRobot.tankDrive(-50, 50);
+    }
   }
 
   // Called once the command ends or is interrupted.
