@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
+import frc.robot.subsystems.Balllauncher;
 import frc.robot.subsystems.Ultrasound;
 
 // Scores during autonomous if it senses the goal 
@@ -30,6 +31,8 @@ public class Score extends CommandBase {
   public void execute() {
     double currentDistance =  Ultrasound.m_filter.calculate(Ultrasound.ultrasonicFront.getValue()) * 0.125;
       if (currentDistance > 30){
+        new Turn();
+        Balllauncher.shooter.set(100);
         isFinished();
       }
   }
