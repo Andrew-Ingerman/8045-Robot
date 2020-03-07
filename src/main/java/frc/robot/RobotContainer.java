@@ -84,7 +84,6 @@ public class RobotContainer {
   public static Balllauncher balllauncher;
   public static IntakeLifter intakeLifter;
   public static MoveArm armMover;
-  public static AnalogInput backUltrasound;
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */

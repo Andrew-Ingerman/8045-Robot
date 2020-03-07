@@ -93,7 +93,9 @@ public class Robot extends TimedRobot {
     RobotContainer.cancel = new Cancel();
     RobotContainer.gyroSensor = new PigeonIMU(Constants.gyroSensor);
     Balllauncher.shooter = new WPI_VictorSPX(Constants.shooter);
-    RobotContainer.backUltrasound = new AnalogInput(Constants.backUltrasound);
+    Ultrasound.ultrasonicLeft = new AnalogInput(Constants.leftUltrasound);
+    Ultrasound.ultrasonicFront = new AnalogInput(Constants.frontUltrasound);
+    Ultrasound.ultrasonicBack = new AnalogInput(Constants.backUltrasound);
     Balllauncher.gate = new Servo(Constants.gate);
     Intake.intakeServo = new Servo(Constants.intake);
     Arm.Actuator = new Servo(Constants.actuator);

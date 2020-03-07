@@ -29,11 +29,10 @@ public class MoveBack extends CommandBase {
     double currentSpeed = (Ultrasound.kHoldDistance - Ultrasound.currentDistance) * Ultrasound.kP;
     if (Ultrasound.currentDistance <= 30) {
       RobotContainer.myRobot.arcadeDrive(0, 0);
-    }
-    else {
+    } else {
      RobotContainer.myRobot.arcadeDrive(currentSpeed, 0); 
     }
-    }
+  }
 
   // Returns true when the command should end.
   @Override
