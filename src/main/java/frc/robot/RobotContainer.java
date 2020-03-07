@@ -50,6 +50,7 @@ public class RobotContainer {
   public static I2C.Port i2cPort;
   public static ColorSensorV3 colorsensor;
   public static Joystick joystick;
+  public static Autonomous auto;
   // The robot's subsystems and commands are defined here...
   public static ExampleSubsystem m_exampleSubsystem;
   public static Autonomous m_autoCommand;

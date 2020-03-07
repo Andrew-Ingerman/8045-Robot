@@ -23,6 +23,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.Command; 
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.Autonomous;
 import frc.robot.commands.Cancel;
 import frc.robot.commands.Colorswitch;
 import frc.robot.commands.Gyronum;
@@ -101,6 +102,7 @@ public class Robot extends TimedRobot {
     RobotContainer.intakeLifter = new IntakeLifter();
     RobotContainer.armMover = new MoveArm(); 
     Intake.catcher = new SpeedControllerGroup(Intake.catcher1, Intake.catcher2);
+    RobotContainer.auto = new Autonomous();
     robotContainer = new RobotContainer();
   }
 
@@ -154,6 +156,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
+    RobotContainer.auto.schedule();
   }
 
   @Override
