@@ -21,16 +21,18 @@ public class Ultrasound extends SubsystemBase {
 
   private static double kHoldDistance;
 
- 
+  public static AnalogInput ultrasonicFront;
+  public static AnalogInput ultrasonicLeft;
   private static double kValueToInches;
-
   private static double kP;
   private static int kUltrasonicPort;
-  private MedianFilter m_filter;
+  public static MedianFilter m_filter;
 
   private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
   public Ultrasound() 
   {
+    
+    
     kHoldDistance = 12.0;
     kValueToInches = 0.125;
     kP = 0.05;
@@ -41,9 +43,9 @@ public class Ultrasound extends SubsystemBase {
   @Override
   public void periodic() 
   {
-    double currentDistance = m_filter.calculate(m_ultrasonic.getValue()) * kValueToInches;
-    System.out.println(currentDistance);
-    double currentSpeed = (kHoldDistance - currentDistance) * kP;
+    // double currentDistance = m_filter.calculate(m_ultrasonic.getValue()) * kValueToInches;
+    // System.out.println(currentDistance);
+    // double currentSpeed = (kHoldDistance - currentDistance) * kP;
     // if (currentDistance <= 30) {
     
     //   RobotContainer.myRobot.arcadeDrive(0, 0);

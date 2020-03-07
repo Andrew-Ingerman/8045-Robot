@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import edu.wpi.first.wpilibj2.command.ParallelRaceGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
@@ -23,10 +24,12 @@ public class Autonomous extends SequentialCommandGroup {
     addCommands(
       // Move Robot Back
       new MoveBack(),
-      // turn robot so it can shoot
+      // turns the robot 90 deg so it can shoot
       new Turn(),
       // Moves toward the goal and scans to shoot
-      new ParallelCommandGroup(new Scanner(), new Score())
+      new ParallelRaceGroup(new Scanner(), new Score()),
+      // turns the robot 90 deg so it can shoot
+      new Turn()
     );
   }
 

@@ -36,6 +36,7 @@ import frc.robot.subsystems.Balllauncher;
 import frc.robot.subsystems.Colorwheel;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Ultrasound;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 
 /**
@@ -99,6 +100,8 @@ public class Robot extends TimedRobot {
     Arm.Actuator = new Servo(2);
     RobotContainer.intakeLifter = new IntakeLifter();
     RobotContainer.armMover = new MoveArm(); 
+    Ultrasound.ultrasonicFront = new AnalogInput(0);
+    Ultrasound.ultrasonicLeft = new AnalogInput(1);
     Intake.catcher1 = new WPI_VictorSPX(Constants.catcher1);
     Intake.catcher2 = new WPI_VictorSPX(Constants.catcher2);
     Intake.catcher = new SpeedControllerGroup(Intake.catcher1, Intake.catcher2);
