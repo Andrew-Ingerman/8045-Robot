@@ -13,8 +13,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 // Moves back during autonomous
 public class MoveBack extends CommandBase {
+  double currentDistance;
+  double currentSpeed;
 
-  // A specific button or action on the joystick will control the mechanism (motors) and eventually pick up the ball 
   public MoveBack() {
   }
 
@@ -25,12 +26,13 @@ public class MoveBack extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {  
-    double currentSpeed = (Ultrasound.kHoldDistance - Ultrasound.currentDistance) * Ultrasound.kP;
+  public void execute() {
+    currentDistance = Ultrasound.m_filter.calculate(Ultrasound.ultrasonicBack.getValue()) * Ultrasound.kValueToInches;
+    currentSpeed = (Ultrasound.kHoldDistance - currentDistance) * Ultrasound.kP;
     if (Ultrasound.currentDistance <= 30) {
       RobotContainer.myRobot.arcadeDrive(0, 0);
     } else {
-     RobotContainer.myRobot.arcadeDrive(currentSpeed, 0); 
+     RobotContainer.myRobot.arcadeDrive(-currentSpeed, 0); 
     }
   }
 

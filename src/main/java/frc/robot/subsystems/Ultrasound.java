@@ -24,19 +24,18 @@ public class Ultrasound extends SubsystemBase {
   public static AnalogInput ultrasonicFront;
   public static AnalogInput ultrasonicLeft;
   public static AnalogInput ultrasonicBack;
-  private static double kValueToInches;
+  public static double kValueToInches;
   public static double kP;
-  private static int kUltrasonicPort;
+  // private static int kUltrasonicPort;
   public static MedianFilter m_filter;
+  public static double currentDistance;
 
-public static double currentDistance;
-
-  private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
+  // private final AnalogInput m_ultrasonic = new AnalogInput(kUltrasonicPort);
   public Ultrasound() {
     kHoldDistance = 12.0;
     kValueToInches = 0.125;
     kP = 0.05;
-    kUltrasonicPort = 0;
+    // kUltrasonicPort = 0;
     m_filter = new MedianFilter(10);
   }
 

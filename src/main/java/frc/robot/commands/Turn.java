@@ -28,7 +28,7 @@ public class Turn extends CommandBase {
   public void execute() {
     PigeonIMU.FusionStatus fusionStatus = new PigeonIMU.FusionStatus();
     double currentAngle = fusionStatus.heading;
-    if(currentAngle <= 90){
+    if (currentAngle <= 90) {
       RobotContainer.myRobot.tankDrive(-50, 50);
     }
   }

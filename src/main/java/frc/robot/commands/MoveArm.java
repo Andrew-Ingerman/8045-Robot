@@ -36,7 +36,6 @@ public class MoveArm extends CommandBase {
     Arm.Actuator.setSpeed(1.0);      
   }
   
-
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
