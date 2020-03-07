@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
+import frc.robot.subsystems.Ultrasound;
 
 // Scores during autonomous if it senses the goal 
 public class Score extends CommandBase {
@@ -27,6 +28,10 @@ public class Score extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    double currentDistance =  Ultrasound.m_filter.calculate(Ultrasound.ultrasonicFront.getValue()) * 0.125;
+      if (currentDistance > 30){
+        isFinished();
+      }
   }
 
   // Called once the command ends or is interrupted.

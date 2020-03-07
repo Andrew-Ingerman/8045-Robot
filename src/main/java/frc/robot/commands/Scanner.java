@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
+import frc.robot.subsystems.Ultrasound;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.MedianFilter;
 
@@ -16,14 +17,12 @@ public class Scanner extends CommandBase {
   /**
    * Creates a new Scanner.
    */
-  private AnalogInput m_ultrasonic;
-  private int kUltrasonicPort;
+
   private MedianFilter m_filter;
   private static double kHoldDistance;
   public Scanner() {
     // Use addRequirements() here to declare subsystem dependencies.
-    kUltrasonicPort = 0;
-    m_ultrasonic= new AnalogInput(kUltrasonicPort);
+    
     m_filter = new MedianFilter(10);
     kHoldDistance = 12.0;
   }
@@ -35,11 +34,14 @@ public class Scanner extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    double currentDistance =  m_filter.calculate(m_ultrasonic.getValue()) * 0.125;
+  public void execute() 
+  {
+    double currentDistance =  m_filter.calculate(Ultrasound.ultrasonicFront.getValue()) * 0.125;
     System.out.println(currentDistance);
     double currentSpeed = (kHoldDistance - currentDistance) * 0.125;
-    if (currentDistance <= 30) {
+    RobotContainer.myRobot.arcadeDrive(currentSpeed, currentSpeed);
+    if (currentDistance <= 30)
+    {
       RobotContainer.myRobot.arcadeDrive(0, 0);
     }
   }
