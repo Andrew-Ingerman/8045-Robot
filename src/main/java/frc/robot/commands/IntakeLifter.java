@@ -30,8 +30,12 @@ public class IntakeLifter extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double angle = IS_RUNNING ? 0.0: 90; 
-    Intake.intakeServo.setAngle(angle);
+    
+    double angle = IS_RUNNING ? 0.0: 1.0;
+    // double angle = IS_RUNNING ? 0.0: 90; 
+    Intake.intakeServo.set(angle);
+    // Intake.intakeServo.setAngle(angle);
+
   }
 
   // Called once the command ends or is interrupted.

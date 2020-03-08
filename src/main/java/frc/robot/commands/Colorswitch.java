@@ -33,6 +33,7 @@ public class Colorswitch extends CommandBase implements IColorswitch {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    System.out.println(Colorreading());
     Motorcontrol();
   }
 
@@ -57,6 +58,8 @@ public class Colorswitch extends CommandBase implements IColorswitch {
   }
 
   public void Motorcontrol(){
+    System.out.println("The detected color is " + Colorreading());
+    System.out.println("The target color is " + ColorChooser());
     WheelColors[] colors = WheelColors.values();
     if (Colorreading() == colors[ColorTargeting()]) {
       RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 5);
@@ -65,7 +68,7 @@ public class Colorswitch extends CommandBase implements IColorswitch {
       RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 0); 
     } 
     else {
-      RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 25); 
+      RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 100); 
     }
   }
 

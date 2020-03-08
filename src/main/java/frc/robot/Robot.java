@@ -98,7 +98,11 @@ public class Robot extends TimedRobot {
     Ultrasound.ultrasonicBack = new AnalogInput(Constants.backUltrasound);
     Balllauncher.gate = new Servo(Constants.gate);
     Intake.intakeServo = new Servo(Constants.intake);
-    Arm.Actuator = new Servo(Constants.actuator);
+    // Arm.Actuator = new Servo(Constants.actuator);
+    // RobotContainer.ultrasound = new AnalogInput(0);
+    Balllauncher.gate = new Servo(0);
+    Intake.intakeServo = new Servo(1);
+    Arm.actuator = new Servo(2);
     RobotContainer.intakeLifter = new IntakeLifter();
     RobotContainer.armMover = new MoveArm(); 
     Intake.catcher = new SpeedControllerGroup(Intake.catcher1, Intake.catcher2);
