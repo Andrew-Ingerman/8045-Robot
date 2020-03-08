@@ -21,7 +21,7 @@ public final class Constants {
   public static final int RightFollower = 3;
   public static final int LeftLeader = 1;
   public static final int LeftFollower = 4;
-  public static final int shooter = 6;
+  public static final int shooter = 5/*6*/ ;
   public static final int wheelspinner = 5;
   // Joystick port
   public static final int joystick = 0;
