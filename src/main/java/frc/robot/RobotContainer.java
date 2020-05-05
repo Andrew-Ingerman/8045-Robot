@@ -96,10 +96,10 @@ public class RobotContainer {
   private void configureButtonBindings() {
     joystickButton8.toggleWhenActive(colorSwitch);
     joystickButton3.toggleWhenActive(pickup);
-    joystickButton1.toggleWhenPressed(shootball);
+    // joystickButton1.toggleWhenPressed(shootball);
     // joystickButton4.whileActiveContinuous(new DrivePreset());
-    joystickButton1.toggleWhenActive(armMover);
-    // joystickButton11.toggleWhenActive(intakeLifter);
+    // joystickButton1.toggleWhenActive(armMover);
+    joystickButton1.toggleWhenActive(intakeLifter);
   }
 
   /**
