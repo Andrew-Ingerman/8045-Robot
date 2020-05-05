@@ -64,18 +64,23 @@ public class Colorswitch extends CommandBase implements IColorswitch {
     System.out.println("The detected color is " + Colorreading());
     System.out.println("The target color is " + ColorChooser());
     WheelColors[] colors = WheelColors.values();
-    if(Colorreading() == colors[ColorTargeting()]){
-        RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 5);
+   if (Colorreading() == ColorChooser()){
+      RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 0); 
+    } else {
+      RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 25); 
     }
+    // if(Colorreading() == colors[ColorTargeting()]){
+    //     RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 5);
+    // }
 
     
 
-    else if (Colorreading() == ColorChooser()){
-      RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 0); 
-    } 
-    else {
-      RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 100); 
-    }
+    // else if (Colorreading() == ColorChooser()){
+    //   RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 0); 
+    // } 
+    // else {
+    //   RobotContainer.wheelspinner.set(ControlMode.PercentOutput, 100); 
+    // }
   }
 
   public enum WheelColors {
