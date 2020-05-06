@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
  * An example command that uses an example subsystem.
  */
 public class MoveArm extends CommandBase {
-  public static double i = 0;
+  public static double i = 0.4;
 
   private static Boolean IS_RUNNING = false;
   public MoveArm() {
@@ -38,11 +38,11 @@ public class MoveArm extends CommandBase {
   @Override
   public void execute() {
     System.out.println(i);
-    if (RobotContainer.joystick.getRawButton(11) ){
-      i+=0.003;
+    if (RobotContainer.joystick.getRawButton(12) ){
+      i = 0.5;
     }
-    else if (RobotContainer.joystick.getRawButton(8)){
-      i-=0.003;
+    else if (RobotContainer.joystick.getRawButton(10)){
+      i = 0.3;
     }
     // double angle = IS_RUNNING ? 0.0: i;
     Arm.actuator.set(i);      
@@ -52,7 +52,7 @@ public class MoveArm extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-      Arm.actuator.set(0);
+      Arm.actuator.set(.5);
   }
 
   // Returns true when the command should end.

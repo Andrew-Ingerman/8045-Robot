@@ -164,6 +164,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    RobotContainer.armMover.schedule();
     RobotContainer.move.schedule();
   }
 
@@ -172,6 +173,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    
     Balllauncher.gate.setAngle(175);
   }
 

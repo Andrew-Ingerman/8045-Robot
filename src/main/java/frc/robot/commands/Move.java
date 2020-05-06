@@ -18,15 +18,15 @@ public class Move extends CommandBase {
   @Override
   public void execute() {
     // System.out.println(RobotContainer.joystick.getY());
-    if(RobotContainer.joystick.getRawButtonPressed(8))
+    if(RobotContainer.joystick.getRawButtonPressed(7))
     {
       spdMult = 0.5;
     }
-    else if(RobotContainer.joystick.getRawButtonPressed(10))
+    else if(RobotContainer.joystick.getRawButtonPressed(9))
     {
       spdMult = 0.7;
     }
-    else if(RobotContainer.joystick.getRawButtonPressed(12))
+    else if(RobotContainer.joystick.getRawButtonPressed(11))
     {
       spdMult = 1.0;
     }
