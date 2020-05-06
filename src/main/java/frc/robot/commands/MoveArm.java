@@ -39,10 +39,10 @@ public class MoveArm extends CommandBase {
   public void execute() {
     System.out.println(i);
     if (RobotContainer.joystick.getRawButton(12) ){
-      i = 0.5;
+      i = 0.57;
     }
     else if (RobotContainer.joystick.getRawButton(10)){
-      i = 0.3;
+      i = 0.35;
     }
     // double angle = IS_RUNNING ? 0.0: i;
     Arm.actuator.set(i);      
